@@ -64,7 +64,7 @@ Untuk mencapai tujuan yang telah ditetapkan, proyek ini mengimplementasikan dua 
 
 ## Data Understanding
 
-Dataset yang digunakan dalam proyek ini adalah **Dataset Tempat Wisata Indonesia** yang berisi informasi komprehensif tentang destinasi wisata di seluruh Indonesia. Dataset ini dikumpulkan dari berbagai sumber dan berisi **1.169 tempat wisata** yang tersebar di 34 provinsi Indonesia.
+Dataset yang digunakan dalam proyek ini adalah **Dataset Tempat Wisata Indonesia** yang berisi informasi komprehensif tentang destinasi wisata di seluruh Indonesia. Dataset ini dikumpulkan dengan scraping di Google Mpas dan berisi **1.169 tempat wisata** yang tersebar di 38 provinsi Indonesia.
 
 **Sumber Dataset**: Dataset Tempat Wisata Indonesia (file: `tempat_wisata_indonesia.csv`)
 
@@ -76,17 +76,20 @@ Dataset yang digunakan dalam proyek ini adalah **Dataset Tempat Wisata Indonesia
 
 **Variabel-variabel pada dataset adalah sebagai berikut**:
 
-1. **id**: Identifier unik untuk setiap tempat wisata (integer)
-2. **nama**: Nama tempat wisata (string)
-3. **alamat**: Alamat lengkap tempat wisata (string)
-4. **rating**: Rating tempat wisata dalam skala 1-5 (float)
-5. **jumlah_review**: Jumlah review yang diberikan pengunjung (integer)
-6. **deskripsi**: Deskripsi detail tentang tempat wisata (string)
-7. **koordinat**: Koordinat geografis dalam format dictionary dengan latitude dan longitude (string)
-8. **url**: URL Google Maps tempat wisata (string)
-9. **provinsi**: Provinsi tempat wisata berada (string)
-10. **foto**: Array URL foto-foto tempat wisata (string)
-11. **kategori**: Kategori tempat wisata dalam format array (string)
+ | **Variabel**      | **Tipe**      | **Deskripsi**                                                      |
+ |-------------------|---------------|--------------------------------------------------------------------|
+ | **id**            | integer       | Identifier unik untuk setiap tempat wisata                         |
+ | **nama**          | string        | Nama tempat wisata                                                 |
+ | **alamat**        | string        | Alamat lengkap tempat wisata                                       |
+ | **rating**        | float         | Rating tempat wisata dalam skala 1–5                                |
+ | **jumlah_review** | integer       | Jumlah review yang diberikan pengunjung                            |
+ | **deskripsi**     | string        | Deskripsi detail tentang tempat wisata                             |
+ | **koordinat**     | string (dict) | Koordinat geografis: `{ "lat": ..., "lon": ... }`                  |
+ | **url**           | string        | URL Google Maps tempat wisata                                       |
+ | **provinsi**      | string        | Provinsi tempat wisata berada                                       |
+ | **foto**          | array[string] | Array URL foto-foto tempat wisata                                   |
+ | **kategori**      | array[string] | Kategori tempat wisata dalam format array                         |
+
 
 ### Exploratory Data Analysis
 
