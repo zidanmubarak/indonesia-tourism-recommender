@@ -64,7 +64,7 @@ Untuk mencapai tujuan yang telah ditetapkan, proyek ini mengimplementasikan dua 
 
 ## Data Understanding
 
-Dataset yang digunakan dalam proyek ini adalah **Dataset Tempat Wisata Indonesia** yang berisi informasi komprehensif tentang destinasi wisata di seluruh Indonesia. Dataset ini dikumpulkan dengan scraping di Google Mpas dan berisi **1.169 tempat wisata** yang tersebar di 38 provinsi Indonesia.
+Dataset yang digunakan dalam proyek ini adalah **Dataset Tempat Wisata Indonesia** yang berisi informasi komprehensif tentang destinasi wisata di seluruh Indonesia. Dataset ini dikumpulkan dengan scraping di Google Maps dan berisi **1.169 tempat wisata** yang tersebar di 38 provinsi Indonesia.
 
 **Sumber Dataset**: Dataset Tempat Wisata Indonesia (file: `tempat_wisata_indonesia.csv`)
 
