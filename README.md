@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - Sistem Rekomendasi Tempat Wisata Indonesia
+# Laporan Proyek Machine Learning - Zidan Mubarak
 
 ## Project Overview
 
@@ -15,8 +15,6 @@ Sistem rekomendasi tempat wisata menjadi solusi yang efektif untuk membantu wisa
 3. **Efisiensi dalam perencanaan perjalanan**: Menghemat waktu wisatawan dalam mencari dan memilih destinasi wisata[^1].
 
 4. **Personalisasi pengalaman**: Memberikan rekomendasi yang disesuaikan dengan riwayat dan preferensi masing-masing pengguna[^1][^3].
-
-## Referensi
 
 [^1]: Ricci, F., Rokach, L., & Shapira, B. (2015). *Recommender Systems Handbook*. Springer. [https://doi.org/10.1007/978-1-4899-7637-6](https://doi.org/10.1007/978-1-4899-7637-6)
 
