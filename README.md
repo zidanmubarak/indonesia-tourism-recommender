@@ -67,7 +67,7 @@ Untuk mencapai tujuan yang telah ditetapkan, proyek ini mengimplementasikan dua 
 Dataset yang digunakan dalam proyek ini adalah **Dataset Tempat Wisata Indonesia** yang berisi informasi komprehensif tentang destinasi wisata di seluruh Indonesia. Dataset ini dikumpulkan dengan scraping di Google Maps dan berisi **1.169 tempat wisata** yang tersebar di 38 provinsi Indonesia.
 
 **Sumber Dataset**: 
-- **Tautan**: (tempat_wisata_indonesia.csv)[https://github.com/NusantaraGo/NusantaraGo-ML/blob/main/Scrape_Data/tempat_wisata_indonesia.csv]
+- **Tautan**: [tempat_wisata_indonesia.csv](https://github.com/NusantaraGo/NusantaraGo-ML/blob/main/Scrape_Data/tempat_wisata_indonesia.csv)
 - **Metode Pengumpulan**: Web scraping dari Google Maps
 
 **Informasi Dataset**:
@@ -115,7 +115,7 @@ Analisis eksplorasi data mengungkapkan beberapa insight penting:
 - Sebagian besar review berkisar antara 10–200  
 
 ![Distribusi Provinsi](assets/province_distribution.png)
-*Gambar 2: Distribusi tempat wisata per provinsi menunjukkan Aceh sebagai provinsi dengan data terbanyak*
+*Gambar 3: Distribusi tempat wisata per provinsi menunjukkan Aceh sebagai provinsi dengan data terbanyak*
 
 **Distribusi Geografis**:
 - Dataset mencakup wisata dari 38 provinsi di Indonesia
@@ -123,7 +123,7 @@ Analisis eksplorasi data mengungkapkan beberapa insight penting:
 - Setiap provinsi memiliki sekitar 35 tempat wisata dalam dataset
 
 ![Kategori Wisata](assets/category_distribution.png)
-*Gambar 3: Distribusi kategori wisata menunjukkan pantai sebagai kategori terpopuler*
+*Gambar 4: Distribusi kategori wisata menunjukkan pantai sebagai kategori terpopuler*
 
 **Kategori Wisata**:
 - **Lainnya**: Kategori campuran untuk wisata yang tidak masuk kategori utama (Kategori terbanyak dengan lebih dari 300 tempat wisata)
@@ -134,7 +134,7 @@ Analisis eksplorasi data mengungkapkan beberapa insight penting:
 - **Kategori lain**: benteng, wisata_alam, danau, pulau, etc.
 
 ![Rating vs Review](assets/rating_vs_review.png)
-*Gambar 4: Hubungan antara rating dan jumlah review menunjukkan korelasi positif*
+*Gambar 5: Hubungan antara rating dan jumlah review menunjukkan korelasi positif*
 
 **Hubungan Rating dan Review**:
 - Terdapat korelasi positif antara rating dan jumlah review
