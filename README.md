@@ -66,7 +66,9 @@ Untuk mencapai tujuan yang telah ditetapkan, proyek ini mengimplementasikan dua 
 
 Dataset yang digunakan dalam proyek ini adalah **Dataset Tempat Wisata Indonesia** yang berisi informasi komprehensif tentang destinasi wisata di seluruh Indonesia. Dataset ini dikumpulkan dengan scraping di Google Maps dan berisi **1.169 tempat wisata** yang tersebar di 38 provinsi Indonesia.
 
-**Sumber Dataset**: Dataset Tempat Wisata Indonesia (file: `tempat_wisata_indonesia.csv`)
+**Sumber Dataset**: 
+- **Tautan**: (tempat_wisata_indonesia.csv)[https://github.com/NusantaraGo/NusantaraGo-ML/blob/main/Scrape_Data/tempat_wisata_indonesia.csv]
+- **Metode Pengumpulan**: Web scraping dari Google Maps
 
 **Informasi Dataset**:
 - **Jumlah data**: 1.169 tempat wisata
@@ -148,7 +150,7 @@ Analisis eksplorasi data mengungkapkan beberapa insight penting:
 
 ## Data Preparation
 
-Tahapan data preparation dilakukan untuk mempersiapkan data agar siap digunakan dalam pengembangan model sistem rekomendasi. Beberapa teknik yang diterapkan:
+Tahapan data preparation dilakukan untuk mempersiapkan data agar siap digunakan dalam pengembangan model sistem rekomendasi. Beberapa teknik yang diterapkan meliputi:
 
 ### 1. Data Cleaning
 
@@ -222,10 +224,18 @@ Parameter yang dipilih:
 - `ngram_range=(1, 2)`: Menggunakan unigram dan bigram untuk konteks yang lebih baik
 - `min_df=1`: Mempertahankan semua term yang muncul minimal sekali
 
+**Cosine Similarity Calculation**:
+```python
+cosine_sim = cosine_similarity(tfidf_matrix)
+```
+
+Matrix cosine similarity dibuat untuk mengukur kesamaan antar tempat wisata berdasarkan konten tekstual.
+
 ### 4. Data Preparation untuk Collaborative Filtering
 
 Karena dataset asli tidak memiliki data rating pengguna, dibuat **synthetic user-item interactions**:
 
+**Pembuatan Data Rating Sintetis**:
 ```python
 # Simulasi 100 user dengan rating pattern yang realistis
 n_users = 100
@@ -242,6 +252,53 @@ Synthetic data diperlukan karena:
 - Dataset asli tidak memiliki data interaksi user-item
 - Memungkinkan implementasi dan evaluasi collaborative filtering
 - Pattern rating dibuat realistis berdasarkan rating aktual tempat wisata
+
+**Pembuatan DataFrame Rating**:
+```python
+ratings_df = pd.DataFrame({
+    'user_id': user_ids,
+    'place_id': place_ids,
+    'rating': ratings
+})
+```
+
+### 5. Konversi Data ke Format Surprise
+
+**Persiapan Data untuk Library Surprise**:
+```python
+from surprise import Dataset, Reader
+
+# Create reader dengan skala rating 1-5
+reader = Reader(rating_scale=(1, 5))
+
+# Load data ke format Surprise
+surprise_data = Dataset.load_from_df(ratings_df[['user_id', 'place_id', 'rating']], reader)
+```
+
+Langkah ini diperlukan untuk:
+- Mengkonversi DataFrame pandas ke format yang dapat diproses oleh library Surprise
+- Menetapkan skala rating yang sesuai (1-5)
+- Mempersiapkan data untuk algoritma collaborative filtering
+
+### 6. Split Data
+
+**Pembagian Data Training dan Testing**:
+```python
+from surprise.model_selection import train_test_split as surprise_train_test_split
+
+# Split data dengan rasio 80:20
+trainset, testset = surprise_train_test_split(surprise_data, test_size=0.2, random_state=42)
+```
+
+Data splitting dilakukan untuk:
+- **Training set (80%)**: Digunakan untuk melatih model SVD
+- **Test set (20%)**: Digunakan untuk evaluasi performa model
+- **Random state=42**: Memastikan reproducibility hasil
+
+**Informasi Split Data**:
+- Training set: ~80% dari total ratings
+- Test set: ~20% dari total ratings
+- Total synthetic ratings: ~2000+ interactions dari 100 users
 
 ## Modeling
 
